@@ -77,16 +77,17 @@ function validateSignup(){
   var phonefield = document.getElementById("phoneno").value;
   var pwdField = document.getElementById("psw-input").value;
   //var phonenoerr = document.getElementById("phonenoerror");
-  console.log("result1:"+result1);
-  console.log("result2:"+result2);
-  console.log("result3:"+result3);
+  //console.log("result1:"+result1);
+  //console.log("result2:"+result2);
+  //console.log("result3:"+result3);
   //var fresult1 = result1 && result2 && result3;
   var fresult1 = result1 && result2;
   if(mailField == ""||phonefield == ""||pwdField == ""){
+    alert("Fields cannot be blank");
     return false;
   }
   else{
-    console.log("fresult1:"+fresult1);
+    //console.log("fresult1:"+fresult1);
   return fresult1;
   }
   
@@ -101,6 +102,7 @@ function validateLogin(){
   // console.log("fresult2:"+fresult2);
   // return fresult2;
   if(mailField == ""||pwdField == ""){
+    alert("Fields cannot be blank");
     return false;
   }
   else{
