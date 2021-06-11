@@ -11,9 +11,182 @@
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link href="css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
+  <style>
+    /* override bootstrap styles */
+@import url('http://fonts.googleapis.com/css?family=Oswald:300,400:latin,latin-ext');
+
+.navbar-form input, .form-inline input {
+  width:auto;
+}
+
+body {
+  padding-top:50px;
+  color:#646464;
+  background-color:#efefef;
+}
+
+h1,h2,h3,.highlight,.navbar a,#masthead h4 {
+  font-family:'Oswald',arial narrow,sans-serif;
+}
+
+footer {
+
+  margin-top:40px;
+  padding-top:40px;
+  padding-bottom:40px;
+  background-color:#cecece;
+ 
+}
+
+
+#masthead {
+  min-height:199px;
+  background-color:#000044;
+  color:#aaaacc;
+}
+
+#masthead h1 {
+  font-size: 55px;
+  line-height: 1;
+  color:#fefeff;
+  margin-top:50px;
+}
+
+#masthead .well {
+  margin-top:31px;
+  background-color:#111166;
+  border-color:#000022;
+  color:#efefff;
+  min-height:127px;
+}
+
+#topPanel {
+  padding-top:0px;
+  padding-left:22px;
+  padding-right:22px;
+}
+#topPanel .panel-body {
+  padding-top:0px;
+}
+
+.navbar.affix {
+  position:fixed;
+  top:0;
+  width:100%;
+}
+
+.top-spacer {
+  background-color:#ffffff;
+  height:40px;
+}
+
+a,a:hover {
+  color:#223344;
+  text-decoration:none;
+}
+
+.icon-bar {
+  background-color:#fff;
+}
+
+@media screen and (min-width: 768px) {
+  #masthead h1 {
+    font-size: 80px;
+  }
+}
+
+.navbar-bright {
+  background-color:#111166;
+  color:#fff;
+  margin-bottom: 0;
+  border-width: 0;
+}
+
+.navbar-bright a, .navbar-bright .navbar-brand, #masthead h4 {
+  color:#ccccdd;
+  font-size:14px;
+  text-transform: uppercase;
+  letter-spacing:.08em;
+}
+
+.navbar-bright li > a:hover {
+  background-color:#000044;
+}
+
+.dropdown-menu {
+  min-width: 250px;
+}
+
+.caret {
+  color:#fff;
+}
+
+.navbar-toggle {
+  color:#fff;
+  border-width:0;
+}
+
+.navbar-toggle:hover {
+  background-color:#fff;
+}
+
+.panel {
+  border-color:transparent;
+  border-radius:0;
+}
+
+.thumbnail {
+  margin-bottom:8px;
+}
+
+.img-container {
+  overflow:hidden;
+  height:170px;
+}
+
+.img-container img {
+  min-width:280px;
+  min-height:180px;
+  max-width:380px;
+  max-height:280px;
+}
+
+.txt-container {
+  overflow:hidden;
+  height:100px;
+}
+
+.panel .lead {
+  overflow:hidden;
+  height:90px;
+}
+
+.label-float{
+  margin:0 auto;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width:100%;
+  opacity:.9;
+  padding:6px;
+  color:#fff;
+}
+    
+.btn-twitter {background-color:#4099FF;color:#fff;}
+.btn-facebook {background-color:#3B5998;color:#fff;}
+.btn-google-plus {background-color:#d34836;color:#fff;}
+
+.btn-twitter:hover {background-color:#3088FF;color:#62BBFF;}
+.btn-facebook:hover {background-color:#2A4998;color:#4C6BBA;}
+.btn-google-plus:hover {background-color:#C23836;color:#E45A58;}
+
+.panel-body-image{height: 500px;margin-top: -3.6%;}
+.panel-body-image{background-image: url(/images/library1.jpg);}
+  </style>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
   <div class="container">
@@ -29,9 +202,9 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <%for(i=0;i<nav.length;i++){%>
-        <!-- <li>
+        <li>
           <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
-        </li> -->
+        </li>
         <%}%>
       </ul>
       <ul class="nav navbar-right navbar-nav">
@@ -52,7 +225,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>SignUp
+        <h1>AddAuthor
           <p class="lead"></p>
         </h1>
       </div>
@@ -99,42 +272,49 @@
                 <p><a href="#">Link</a></p> -->
               </div>
               <div class="col-sm-6 text-left"> 
-                <h1>Welcome</h1>
-                <form class="form-horizontal" method="POST" name="form1" action="/register" onsubmit="return validateLogin()">
+                <!-- <h1>Welcome</h1> -->
+                <form class="form-horizontal" method="POST" name="form1" action="/adminauthor/<%=author._id%>/update" enctype="multipart/form-data">
+                  
                   <div class="form-group">
-                    <label class="control-label col-sm-2" for="email">Email:</label>
+                    <label class="control-label col-sm-2" for="email">Name:</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="username" id="inputEmail4" placeholder="Enter email" onchange="return validateEmail(this)">
-                      <label for="emailerror" id="emailerror" class="form-label"></label>
+                      <input type="text" class="form-control" name="name" id="inputname" placeholder="Enter name" value="<%=author.name%>" required>
+                      <label for="nameerror" id="nameerror" class="form-label"></label>
                     </div>        
                   </div>
+
                   <div class="form-group">
-                    <label class="control-label col-sm-2" for="pwd">Password:</label>
+                    <label class="control-label col-sm-2" for="pwd">Age:</label>
                     <div class="col-sm-10">          
-                      <input type="password" class="form-control" name="password" id="psw-input" onchange="return validatePassword(this)">
-                      <div id="pswmeter" class="mt-3"></div>
-                      <div id="pswmeter-message" class="mt-3"></div>
+                      <input type="text" class="form-control" name="age" id="age-input" placeholder="Enter age" value="<%=author.age%>" required>
+                      <label for="ageerror" id="ageerror" class="form-label"></label>
                     </div>
                   </div>
+
                   <div class="form-group">
-                      <label class="control-label col-sm-2" for="pwd">Phone No:</label>
-                      <div class="col-sm-10">          
-                          <input type="text" class="form-control" name="phoneno" id="phoneno" name="phoneno" onchange="return phonenumber(document.form1.phoneno)">
-                        <label for="phonenoerror" id="phonenoerror" class="form-label"></label>
-                      </div>
-                    </div>
+                    <label class="control-label col-sm-2" for="email">Type:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="type" id="inputtype" placeholder="Enter type" value="<%=author.type%>" required>
+                      <label for="typeerror" id="typeerror" class="form-label"></label>
+                    </div>        
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">File:</label>
+                    <div class="col-sm-10">
+                      <input type="file" class="form-control" name="file" id="inputfile" value="<%=author.image%>" required>
+                      <label for="fileerror" id="fileerror" class="form-label"></label>
+                    </div>        
+                  </div>
+                  
                   <div class="form-group">        
                     <div class="col-sm-offset-2 col-sm-10">
                       <button type="submit" class="btn btn-info">Submit</button>
+                      <a href="/authors/<%=author._id%>" class="btn btn-primary pull-right btnNext">Cancel</a>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label class="control-label col-sm-2" for="pwd">Registered User?</label>
-                    <div class="col-sm-10">          
-                        <!-- <a href="signup.html" class="btn btn-primary">Sign Up</a> -->
-                        <a href="/login" class="btn btn-primary">Log in</a>
-                      </div>
-                  </div>
+                  
+          
                 </form>
               </div>
               <div class="col-sm-3 sidenav">
@@ -149,8 +329,6 @@
           </div>
           
       
-          
-          
           <!--/stories-->
           
           
@@ -184,9 +362,7 @@
   </div>
 </div>
 
-<hr>
 
-<hr>
 
 <footer>
   <div class="container">
@@ -209,31 +385,6 @@
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/pswmeter.min.js"></script>
-    <script>
-            // Run pswmeter with options
-            const myPassMeter = passwordStrengthMeter({
-        containerElement: '#pswmeter',
-        passwordInput: '#psw-input',
-        showMessage: true,
-        messageContainer: '#pswmeter-message',
-        messagesList: [
-          'Write your password...',
-          'Bad',
-          'Weak',
-          'Good',
-          'Strong'
-        ],
-        height: 6,
-        borderRadius: 0,
-        pswMinLength: 8,
-        colorScore1: 'red',
-        colorScore2: 'orange',
-        colorScore3: 'yellow',
-        colorScore4: 'limegreen'
-      });
-
-    </script>
+    <script src="/public/js/login.js"></script>
 	</body>
 </html>

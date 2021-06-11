@@ -28,11 +28,15 @@
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <%for(i=0;i<nav.length;i++){%>
         <li>
-          <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+          <a href="/userbooks">Books</a>
         </li>
-        <%}%>
+        <li>
+          <a href="/userauthors">Authors</a>
+        </li>
+        <li>
+          <a href="/logout">Logout</a>
+        </li>
       </ul>
       <ul class="nav navbar-right navbar-nav">
         <li class="dropdown">
@@ -52,7 +56,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Author
+        <h1>Book
           <p class="lead"></p>
         </h1>
       </div>
@@ -95,14 +99,14 @@
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="/images/<%=author.image%>" style="width:100px;height:100px" class="img-circle"></a>
+              <a class="story-title" href="#"><img alt="" src="/images/<%=book.image%>" style="width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
-              <h3><%=author.name%></h3>
+              <h3><%=book.title%></h3>
               <div class="row">
                 <div class="col-xs-9">
-                  <h4><span class="label label-default"><%=author.age%></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%=author.type%>  • 
+                  <h4><span class="label label-default"><%=book.author%></span></h4><h4>
+                  <small style="font-family:courier,'new courier';" class="text-muted"><%=book.genre%>  • 
                   </h4></div>
                 <div class="col-xs-3"></div>
               </div>
@@ -116,11 +120,8 @@
           <!--/stories-->
           
           
-          <a href="/authors" class="btn btn-primary pull-right btnNext">Back <i class="fa fa-hand-o-left"></i></a>
-          <a href="/adminauthor/<%=author._id%>/edit" class="btn btn-primary pull-right btnNext">Edit <i class="fa fa-pencil"></i></a>
-          <a href="/adminauthor/<%=author._id%>/delete" class="btn btn-primary pull-right btnNext">Delete <i class="fa fa-trash"></i></a>
-          
-        </div>
+          <a href="/userbooks" class="btn btn-primary pull-right btnNext">Back <i class="fa fa-hand-o-left"></i></a>
+          </div>
       </div>
                                                                                        
 	                                                

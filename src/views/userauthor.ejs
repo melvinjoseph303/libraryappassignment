@@ -28,11 +28,15 @@
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <%for(i=0;i<nav.length;i++){%>
         <li>
-          <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
-        </li>
-        <%}%>
+            <a href="/userbooks">Books</a>
+          </li>
+          <li>
+            <a href="/userauthors">Authors</a>
+          </li>
+          <li>
+            <a href="/logout">Logout</a>
+          </li>
       </ul>
       <ul class="nav navbar-right navbar-nav">
         <li class="dropdown">
@@ -116,10 +120,7 @@
           <!--/stories-->
           
           
-          <a href="/authors" class="btn btn-primary pull-right btnNext">Back <i class="fa fa-hand-o-left"></i></a>
-          <a href="/adminauthor/<%=author._id%>/edit" class="btn btn-primary pull-right btnNext">Edit <i class="fa fa-pencil"></i></a>
-          <a href="/adminauthor/<%=author._id%>/delete" class="btn btn-primary pull-right btnNext">Delete <i class="fa fa-trash"></i></a>
-          
+          <a href="/userauthors" class="btn btn-primary pull-right btnNext">Back <i class="fa fa-hand-o-left"></i></a>                    
         </div>
       </div>
                                                                                        
