@@ -95,7 +95,7 @@
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="/images/<%=author.img%>" style="width:100px;height:100px" class="img-circle"></a>
+              <a class="story-title" href="#"><img alt="" src="/images/<%=author.image%>" style="width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
               <h3><%=author.name%></h3>
@@ -117,7 +117,8 @@
           
           
           <a href="/authors" class="btn btn-primary pull-right btnNext">Back <i class="fa fa-hand-o-left"></i></a>
-        
+          <a href="/adminauthor/<%=author._id%>/edit" class="btn btn-primary pull-right btnNext">Edit <i class="fa fa-pencil"></i></a>
+          <a href="/adminauthor/<%=author._id%>/delete" class="btn btn-primary pull-right btnNext">Delete <i class="fa fa-trash"></i></a>
           
         </div>
       </div>
